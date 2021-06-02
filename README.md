@@ -2,7 +2,7 @@
 Fork of https://github.com/Wunkolo/UWPDumper that replaces the Injector CLI with a class interface for using UWPInjector/Dumper in other tools.
 
 
-Created mainly for [DOOMdumper](https://github.com/SEWsam/DOOMDumper), the c++ rewrite of [UWP-DOOMdumper](https://github.com/SEWsam/WUP-DOOMdumper)
+Created mainly for [DOOMdumper](https://github.com/SEWsam/DOOMDumper), the c++ rewrite of [UWP-DOOMdumper](https://github.com/SEWsam/UWP-DOOMdumper)
 
 The purpose of creating this was to help easily automate the process of sideloading _DOOM Eternal_, for modding. Simply calling the `UWPInjector` executable from within DOOMdumper leaves room for error, such as the inability to safely determine if the game was properly dumped, which can cause incomplete installations/needing to reinstall.
 
