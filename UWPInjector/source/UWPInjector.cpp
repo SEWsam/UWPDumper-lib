@@ -347,8 +347,18 @@ namespace UWPDumper
 		}
 		else
 		{
-			std::cout << "\033[91mFailed to query process for " << std::endl;
-			// system("pause");
+			std::cerr << "\033[91mFailed to query process info." << std::endl;
+
+			int lasterror = GetLastError();
+			if (lasterror == ERROR_ACCESS_DENIED)
+			{
+				std::cerr << "\033[91mYou are not running with full admin rights." << std::endl;
+			}
+			if (DebugSometimes)
+			{
+					std::cerr << "\033[33mDebug message: \033[91mError Code: " << lasterror << std::endl;
+			}
+
 			throw InjectorError::query;
 		}
 	}
@@ -376,7 +386,7 @@ namespace UWPDumper
 
 
 	// public
-	UWPInjector::UWPInjector(uint32_t pid, std::string path) : ProcessID(pid), TargetPath(path)
+	UWPInjector::UWPInjector(uint32_t pid, std::string path, bool verboseish) : ProcessID(pid), TargetPath(path), DebugSometimes(verboseish)
 	{
 		IPC::SetClientProcess(GetCurrentProcessId());
 

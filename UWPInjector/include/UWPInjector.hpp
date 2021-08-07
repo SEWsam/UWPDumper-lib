@@ -15,26 +15,19 @@ namespace UWPDumper
 		timeout
 
 	};
-
-	/// <summary>
-	/// UWPInjector class for use in other projects
-	/// </summary>
-	/// <remarks> 
-	/// Logging has been removed-- that can be implemented externally.
-	/// </remarks>
 	class UWPInjector
 	{
 	private:
 		std::uint32_t ProcessID;
 		std::filesystem::path TargetPath;
-
 		std::wstring PackageFileName;
+		bool DebugSometimes;
 
 		void PackageQuery();
 		void InitDumpFolder();
 
 	public:
-		UWPInjector(uint32_t pid, std::string path);
+		UWPInjector(uint32_t pid, std::string path, bool verboseish=false);
 
 		inline bool ValidThread()
 		{
